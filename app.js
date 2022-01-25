@@ -1,31 +1,25 @@
 'use strict';
-
-// each drink shiuld has :
+alert("welcome");
+// each employee shiuld has :
 // - Employee ID
 // - Full Name
 // - Department:
 // - Level:
 // - Image URL
 // - Salary
-function employee(ID,FullName, Department,Level,Salary){
+function employee(ID,FullName, Department,Level){
     this.ID=ID;
     this.FullName =FullName;
     this.Department =Department;
     this.imagePath = `./images/${this.ID}.png`;
     this.Level=Level;
-    this.Salary =Salary;
+    this.Salary =this.Salary()*0.925;
     
 }
 
-const Ghaz1000   = new employee(1000,'Ghazi Samer','Administration','Senior');
-const Lana1001   = new employee(1001,'Lana Ali','Finance','Senior');
-const Tamara1002   = new employee(1002,'Tamara Ayoub','Marketing','Senior');
-const Safi1003   = new employee(1003,'Safi Walid','Development','Senior');
-const Omar1004 = new employee(1004,'Omar Zaid',	'Administration','Mid-Senior');
-const Rana1005= new employee(1005,'Rana Saleh',	'Development','Junior');
-const Hadi1006 = new employee(1006,'Hadi Ahmad','Finance','Mid-Senior');
+
  
-// function number :
+/*// function number :
 function getRandomInt(min, max) {
     min = Math.ceil(min);
     max = Math.floor(max);
@@ -37,29 +31,44 @@ function getRandomInt(min, max) {
 
   //Tax = (randomSalary*tax persentage)
   // netSalary = randomSalary - Tax 
-  
+  */
 
- employee.prototype.render = function(Department){
-     if (this.Department=='Senior')
+ employee.prototype.Salary = function(){
+     if (this.Level=="Senior")
      {
-        getRandomInt(1500,2000)
+         return Math.floor(Math.random() * (2000 - 1500) + 1500); 
      }
-     else if (this.Department=='Mid-Senior')
+     else if (this.Department=="Mid-Senior")
      {
-        getRandomInt(1000,1500)
+      return Math.floor(Math.random() * (1500 - 1000) + 1000); 
+
      }
-     else if(this.Department=='Junior')
+     else if(this.Department=="Junior")
      {
-        getRandomInt(500,1000)
+      return Math.floor(Math.random() * (1000 - 500) + 500); 
+
      } 
-    document.write(`<p>${this.name} has ${this.Salary} JD</p>`)//js interpolation
 }
 
+employee.prototype.render=function()
+{
+   document.write(`<p>Name : ${this.FullName} has ${this.Salary} JD</p>`)//js interpolation
 
-Lana1001.render(Department);
-Tamara1002.render(Department);
-Safi1003.render(Department);
-Omar1004.render(Department);
-Rana1005.render(Department);
-اadi1006.render(Department);
+}
+const Ghaz1000   = new employee(1000,'Ghazi Samer','Administration','Senior');
+const Lana1001   = new employee(1001,'Lana Ali','Finance','Senior');
+const Tamara1002   = new employee(1002,'Tamara Ayoub','Marketing','Senior');
+const Safi1003   = new employee(1003,'Safi Walid','Development','Senior');
+const Omar1004 = new employee(1004,'Omar Zaid',	'Administration','Mid-Senior');
+const Rana1005= new employee(1005,'Rana Saleh',	'Development','Junior');
+const Hadi1006 = new employee(1006,'Hadi Ahmad','Finance','Mid-Senior');
+ 
+const employees_array=[Ghaz1000,Lana1001 ,Tamara1002 ,Safi1003 ,Omar1004,Rana1005,Hadi1006]
+
+for (let i=0; i<7;i++)
+{
+   employees_array[i].render();
+}
+ 
+
 
