@@ -52,8 +52,8 @@ function getRandomInt(min, max) {
 
 employee.prototype.render=function()
 {
-   document.write(`<p>Name : ${this.FullName} has ${this.Salary} JD</p>`)//js interpolation
-
+   document.write(`<p>Name : ${this.FullName} has ${this.Salary} JD</p>`)
+ 
 }
 const Ghaz1000   = new employee(1000,'Ghazi Samer','Administration','Senior');
 const Lana1001   = new employee(1001,'Lana Ali','Finance','Senior');
