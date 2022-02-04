@@ -1,71 +1,101 @@
-
+  
 * {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-  }
-  
-  a {
-    text-decoration: none;
-  }
-  
-  
-   
-   
-  section {
-    margin-bottom: 20px!important;
-  }
-  
- 
-.hero {
-    height: 100vh;
-    width: 100%;
-    background-image: url(https://www.xmple.com/wallpaper/white-linear-blue-gradient-2736x1824-c2-b0e0e6-ffffff-a-255-f-14.svg);
-    background-size: cover;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    position: relative;
-    background-attachment: fixed;
-  }
-  
-  
-    
-  header .header-nav {
-    float:right;
-    margin-top: 30px;
-    padding:20px 20px;
-  }  
-  .header-logo {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
 
- float :left;
-    object-fit: cover;
-  }
-  header .header-nav a {
-     border: 1px solid rgb(11, 12, 11); 
-    padding: 10px 90px;
-     margin: 10px 90px;  
-    /* border-radius: 5px; */
-    color: rgb(17, 22, 17);
-    text-transform: uppercase;
-  }
-  .active {
-    background-color: #fcfdfd;
-  }
+a {
+  text-decoration: none;
+}
+
+
+ 
+
+
+
   
-main {
-    grid-column: 1 / -1;
-    grid-row: 1 / 3;
-  }
+header .header-nav {
+  float:right;
+  margin-top: 30px;
+  padding:20px 20px;
+}  
+.header-logo {
+
+float :left;
+  object-fit: cover;
+}
+header .header-nav a {
+   border: 1px solid rgb(11, 12, 11); 
+  padding: 10px 90px;
+   margin: 10px 90px;  
+  /* border-radius: 5px; */
+  color: rgb(17, 22, 17);
+  text-transform: uppercase;
+}
+.active {
+  background-color: #fcfdfd;
+}
+
+
+.header-logo {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+}
   
-  .header-logo {
-    width: 80px;
-    height: 80px;
-    object-fit: cover;
-  }
-    
-    
+
+.head {
+width: 1140px;
+margin: 0 auto;
+}
+
+
+
+header {
+height: 100px;
+grid-column: 1 / 2;
+display: flex;
+align-items: center;
+justify-content: space-between;
+position: fixed;
+top: 0px;
+left: 0;
+right: 0;
+z-index: 2;
+}
+
+
+
+
+
+ 
+
+
+  
+header .header-nav {
+  float:left;
+  margin-top: 30px;
+}  
+.header-logo {
+
+float :left;
+  object-fit: cover;
+}
+header .header-nav a {
+   border: 1px solid rgb(11, 12, 11); 
+  padding: 10px 90px;
+   margin: 10px 90px;  
+  /* border-radius: 5px; */
+  color: rgb(17, 22, 17);
+  text-transform: uppercase;
+}
+.active {
+  background-color: #fcfdfd;
+}
+
+
+ 
 th, td {
   padding: 15px;
   text-align: left;
@@ -84,92 +114,7 @@ th {
   margin: 0 auto;
 }
 
-.grid-container {
-  display: grid;
-  grid-template-rows: 100px 1fr 50px;
-  grid-template-columns: 1fr 1fr;
-}
-
-section {
-  margin-bottom: 20px!important;
-}
  
-header {
-  height: 100px;
-  grid-column: 1 / 2;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  position: fixed;
-  top: 0px;
-  left: 0;
-  right: 0;
-  z-index: 2;
-}
- 
-/*
-.active {
-  background-color: #04AA6D;
-}*/
- 
-* {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-  }
-  
-  a {
-    text-decoration: none;
-  }
-  
-  
-   
-   
-  section {
-    margin-bottom: 20px!important;
-  }
-  
- 
-.hero {
-    height: 100vh;
-    width: 100%;
-    background-image: url(https://www.xmple.com/wallpaper/white-linear-blue-gradient-2736x1824-c2-b0e0e6-ffffff-a-255-f-14.svg);
-    background-size: cover;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    position: relative;
-    background-attachment: fixed;
-  }
-  
-  
-    
-  header .header-nav {
-    float:left;
-    margin-top: 30px;
-  }  
-  .header-logo {
-
- float :left;
-    object-fit: cover;
-  }
-  header .header-nav a {
-     border: 1px solid rgb(11, 12, 11); 
-    padding: 10px 90px;
-     margin: 10px 90px;  
-    /* border-radius: 5px; */
-    color: rgb(17, 22, 17);
-    text-transform: uppercase;
-  }
-  .active {
-    background-color: #fcfdfd;
-  }
-  
-main {
-    grid-column: 1 / -1;
-    grid-row: 1 / 3;
-  }
   footer {
     grid-column: 1 / 3;
     /* text-align: center; */
