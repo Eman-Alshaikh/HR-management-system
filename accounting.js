@@ -15,7 +15,7 @@ function readDataFromLocalS(){
   }
 
 }
- 
+ ///////////////
 function render(){
   employeesTable.innerHTML='';
   let table = document.createElement('table');
