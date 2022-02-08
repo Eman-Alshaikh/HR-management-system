@@ -1,4 +1,4 @@
-'use strict';
+ 'use strict';
 
 // each employee shiuld has :
 // - Employee ID
@@ -174,7 +174,7 @@ function settingItem() {
 
 
 }
-
+ 
 
 //2. get date : take the data from local storage 
 
