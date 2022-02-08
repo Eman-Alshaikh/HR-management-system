@@ -1,6 +1,7 @@
 'use strict';
  
-//4/2/2022 @ 9 PM /////////
+//4/2/2022 @ 9 PM//
+ /////////
 
 let employeesTable=document.getElementById('employeesTable');
 function readDataFromLocalS(){
