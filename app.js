@@ -1,4 +1,4 @@
-'use strict';
+ 'use strict';
 
 // each employee shiuld has :
 // - Employee ID
