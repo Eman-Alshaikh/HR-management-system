@@ -1,4 +1,4 @@
-   
+    
 * {
   padding: 0;
   margin: 0;
@@ -87,7 +87,7 @@ header .header-nav a {
   padding: 10px 90px;
    margin: 10px 90px;  
   /* border-radius: 5px; */
-  color: rgb(17, 22, 17);
+  color: rgb(21, 22, 21);
   text-transform: uppercase;
 }
 .active {
@@ -106,8 +106,10 @@ a {
 
  
 th {
-  background-color: #b3e4e4;
-  color: white;
+  background-color: #bcd5eb;
+  border:50cm;
+  color: rgb(39, 26, 26);
+  padding:20px ;
 }
 .container {
   width: 1140px;

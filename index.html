@@ -1,144 +1,68 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>HR-management-system </title>
-  <link rel="stylesheet" href=" index.css">
-</head>
-
-<body>
-  <div>
-
-    <header class="head">
-      <img
-        src="https://st3.depositphotos.com/27847728/33418/v/600/depositphotos_334180074-stock-illustration-letter-logo-design-vector-template.jpg"
-        class="header-logo">
-
-      <nav class="header-nav active">
-        <a href="#">Home</a>
-        <a href="accounting.html">Accounting</a>
-
-      </nav>
-
-
-
-    </header>
-    <BR></BR><BR></BR><BR></BR><BR></BR><BR></BR>
-
-    <main>
-      <section>
-        <form id="employeeForm">
-          <fieldset>
-            <div class="container_FORM">
-              <legend>Add new employee</legend>
-
-              <div class="row">
-                <div class="col-25">
-                  <label for="FullName ">Full Name </label>
-                </div>
-                <div class="col-75">
-                  <input type="text" name="FullName" id="FullName" />
-                </div>
-              </div>
-              <br>
-              <br>
-              <div class="row">
-                <div class="col-25">
-                  <label for="Department">Department</label>
-                </div>
-                <div class="col-75">
-                  <select id="Department" name="Department">
-                    <option value="Administration">Administration</option>
-                    <option value="Marketing">Marketing</option>
-                    <option value="Development">Development</option>
-                    <option value="Finance">Finance</option>
+   <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>HR-management-system</title>
+      <link rel="stylesheet" href="index.css">
+   </head>
+   <body>
+      <body>
+         <div>
+       
+           <header class="head">
+             <img
+               src="https://st3.depositphotos.com/27847728/33418/v/600/depositphotos_334180074-stock-illustration-letter-logo-design-vector-template.jpg"
+               class="header-logo">
+       
+             <nav class="header-nav active"> 
+               <a href="#">Home</a>
+               <a href="accounting.html">Accounting</a>
+       
+             </nav>
+       
+       
+       
+           </header>
+           <BR></BR><BR></BR><BR></BR><BR></BR><BR></BR>
+       
+      <main>
+         <div id="employeeMain">
+            <div id="formDiv">
+                <form id="form">
+                  <label for="fullName">Full Name :</label>
+                  <input type="text" id="fullName" name="fullName" required><br>
+                  <label for="department">Department :  </label>
+                  <select name="department" id="empdepartment">
+                      <option value="Administration">Administration</option>
+                      <option value="Marketing">Marketing</option>
+                      <option value="Development">Development</option>
+                      <option value="Finance">Finance</option>
                   </select>
-                </div>
-              </div>
-              <br>
-
-              <br>
-              <div class="row">
-                <div class="col-25">
-                  <label for="Level">Level</label>
-                </div>
-
-                <div class="col-75">
-                  <select id="Level" name="Level">
-                    <option value="Junior">Junior</option>
-                    <option value="Mid-Senior">Mid-Senior</option>
-                     <option value="Senior">Senior</option>
+                  <br>
+                  <label for="level">level :  </label>
+                  <select name="level" id="emplevel">
+                      <option value="Junior">Junior</option>
+                      <option value="Mid-Senior">Mid-Senior</option>
+                      <option value="Senior">Senior</option>
                   </select>
-                </div>
-              </div>
-              <br>
-
-              <br>
-              <div class="row">
-                <div class="col-25">
-                  <label for="imgurl">Image URL</label>
-
-                </div>
-                <div class="col-75">
-                  <input type="text" name="imgurl" id="imgurl" />
-                </div>
-              </div>
-              <br>
-              <br>
-              <input type="submit" value="add new employee">
+                  <br>
+                  <label for="empImage">Emplooye Image:  </label>
+                  <input type="text" id="empImage" name="empImage"><br>
+                  <input type="submit" value="Add Emplooye" class="btn">
+                </form>
             </div>
-
-          </fieldset>
-        </form>
-
-      </section>
-      <br> <br>
-
-
-
-
-      <div class="row_card">
-        <div class="column_card">
-          <div class="card_card">
-
-
-            <section id="myEmployee">
-
-
-
-
-              <script src="app.js"></script>
-          </div>
         </div>
-      </div>
-      </section>
-    </main>
-
-  </div>
-
-
-
-
-
-
-
-
-  <br><br><br><br><br><br><br><br><br><br>
-  <br><br><br><br><br><br><br><br><br><br>
-  <footer>
-
-    <div>
-      <p class="test">©2022. All Rights Reserved </p>
-
-      <p class="test">follow us @ <a href="https://www.linkedin.com/in/eman-al-shaikh-9a4583194/">LinkedIn</a> </p>
-    </div>
-
-  </footer>
-
-
-</body>
-
+         <div id="emplooyes" class="container"></div>
+         <script src="app.js"></script>
+      </main>
+      <footer>
+         <div>
+            <p class="test">©2022. All Rights Reserved </p>
+      
+            <p class="test">follow us @ <a href="https://www.linkedin.com/in/eman-al-shaikh-9a4583194/">LinkedIn</a> </p>
+          </div>
+      </footer>
+   </body>
 </html>

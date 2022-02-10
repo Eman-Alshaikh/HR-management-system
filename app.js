@@ -1,193 +1,127 @@
- 'use strict';
+' use strict'
+let allEmployee = [];
 
-// each employee shiuld has :
-// - Employee ID
-// - Full Name
-// - Department:
-// - Level:
-// - Image URL
-// - Salary
-function employee(ID, FullName, Department, Level, imgurl, ran) {
-  this.ID = ID;
-  this.FullName = FullName;
-  this.Department = Department;
-  this.imagePath = imgurl;
-  this.Level = Level;
-  this.Salary = this.Salary() * 0.925;
-  this.ran = ran;
-  // this.ran=ran;
-  employee.allEmployees.push(this);
+function employee(employeeID, fullName, department, level, empImage) {
+    this.employeeID = employeeID;
+    this.fullName = fullName;
+    this.department = department  
+    this.level = level  
+    this.empImage = empImage;
+    
+    this.salary();
 
+    allEmployee.push(this);
 }
 
-employee.allEmployees = [];
+let department = ["Administration", "Marketing", "Development", "Finance"];
+let level = ["Junior", "Mid-Senior", "Senior"];
 
-employee.prototype.generateID = function () {
-  this.ran = getRandomID();
+let emplooyesDiv = document.getElementById("emplooyes");
+
+employee.prototype.render = function () {
+    let emp = document.createElement("div");
+    emp.style.background = "#EEF2FF";
+
+    emp.style.border = "thick solid #325288";
+    emp.style.borderRadius = "12px";
+    emp.style.padding = "20px";
+    emp.style.width = "500px";
+    emp.style.height = "300px";
+    emp.style.textAlign = "center";
+    emp.style.margin = "0 auto"  
+    emp.style.marginBlock = "20px"
+
+    emp.innerHTML = `
+        <img alt="img" src="${this.empImage}" width="150" height="150">
+        <div class="info">
+            <h5>Id: ${this.employeeID}</h5>
+            <h5>Name: ${this.fullName}</h5>
+            <h5>Depaertment: ${this.department}</h5>
+            <h5>Level: ${this.level}</h5>
+            <h5>Salary: ${this.salary}</h5>
+        </div>
+    `;
+
+    emp.className = "emp";
+    emplooyesDiv.appendChild(emp);
 };
 
-//random 4 digits ID
-function getRandomID() {
-  let val = Math.floor(1000 + Math.random() * 9000);
-  //console.log(val);
-  return val;
-
-}
-function render() {
-  let mySection_1 = document.getElementById('myEmployee');
-
-
-  for (let i = 0; i < employee.allEmployees.length; i++) {
-    let myEmployee = employee.allEmployees[i];
-    console.log(myEmployee);
-    // create the element 
-    // append it to its parent 
-    // add text content to the element || attributes
-
-    let dev = document.createElement('div');
-    dev.style.background = "#EEF2FF";
-
-    dev.style.border = "thick solid #325288";
-    dev.style.borderRadius = "12px";
-    dev.style.padding = "20px";
-    dev.style.width = "500px";
-    dev.style.height = "300px";
-    dev.style.textAlign = "center";
-    dev.style.margin = "0 auto" // center 
-    dev.style.marginBlock = "20px"
-
-
-    mySection_1.appendChild(dev);
-
-
-
-    let imge = document.createElement('img');
-    dev.appendChild(imge);
-    imge.setAttribute('src', myEmployee.imagePath);
-
-    imge.setAttribute('alt', myEmployee.FullName);
-    imge.style.height = "150px";
-
-
-
-    let h4el = document.createElement('h1');
-    dev.appendChild(h4el);
-    h4el.style.fontSize = "20px";
-    h4el.style.fontFamily = "Times New Roman";
-    h4el.textContent = `Name: ${myEmployee.FullName} -ID: ${myEmployee.ID} `;
-
-
-    let pe1 = document.createElement('h2');
-    dev.appendChild(pe1);
-    pe1.style.fontSize = "20px";
-
-    pe1.textContent = `Department: ${myEmployee.Department} -Level: ${myEmployee.Level} `;
-
-
-
-    /*
-             const len = 4;
-             ran12= parseInt((Math.random() * 9 + 1) * Math.pow(10,len-1), 10);
-             let ran12=document.createElement('h2');
-             dev.appendChild(ran12);
-             ran12.textContent=myEmployee.ran12;*/
-
-  }
-
-}
-/*// function number :
-function getRandomInt(min, max) {
-   min = Math.ceil(min);
-   max = Math.floor(max);
-   randomSalary= Math.floor(Math.random() * (max - min) + min); //The maximum is exclusive and the minimum is inclusive
-  Tax = (randomSalary*7.5);
- Salary = randomSalary - Tax ;
-  return Salary;
+function saveToLocalStorage(data) {
+    let stringiFedData = JSON.stringify(allEmployee)
+    localStorage.setItem("emplooyes", stringiFedData);
 }
 
- //Tax = (randomSalary*tax persentage)
- // netSalary = randomSalary - Tax 
- */
+function getData() {
+    var data = localStorage.getItem("emplooyes");
+    if (!data) return;
+    let parsedData = JSON.parse(data)
+    console.log(typeof data);
+    allEmployee= [];
 
-employee.prototype.Salary = function () {
-  if (this.Level == "Senior") {
-    return Math.floor(Math.random() * (2000 - 1500) + 1500);
-  }
-  else if (this.Level == "Mid-Senior") {
-    return Math.floor(Math.random() * (1500 - 1000) + 1000);
-
-  }
-  else if (this.Level == "Junior") {
-    return Math.floor(Math.random() * (1000 - 500) + 500);
-
-  }
+    for (let i = 0; i < parsedData.length; i++) {
+        const emp = parsedData[i];
+        var newEmp = new employee(emp.employeeID, emp.fullName, emp.department, emp.level, emp.empImage);
+        newEmp.render();
+    }
 }
 
-
-
-
-
-
-// console.log(employee.allEmployees);
-// render();
-
-/// HTML Events /////
-
-let employeeForm = document.getElementById('employeeForm');
-
-function addNewEmployee(event) {
-  event.preventDefault();
-  let FullName = event.target.FullName.value;
-  let Department = event.target.Department.value;
-  let Level = event.target.Level.value;
-  let imgurl = event.target.imgurl.value;
-  let empId = getRandomID();
-
-  console.log(empId, FullName, Department, Level, imgurl);
-
-  let newemployee = new employee(empId, FullName, Department, Level, imgurl);
-
-  render();
-
-  console.log(newemployee);
-  newemployee.settingItems();
+employee.prototype.salary = function () {
+    if (this.level == "Senior") {
+        var sal = Math.floor(Math.random() * (2000 - 1500)) + 1500;
+        this.salary = sal - (sal * 0.075);
+    }
+    else if (this.level == "Mid-Senior") {
+        var sal = Math.floor(Math.random() * (1500 - 1000)) + 1000;
+        this.salary = sal - (sal * 0.075);
+    }
+    else {
+        var sal = Math.floor(Math.random() * (1000 - 500)) + 500;
+        this.salary = sal - (sal * 0.075);
+    }
 }
-employeeForm.addEventListener('submit', addNewEmployee);
+getData();
 
+if (allEmployee.length == 0) {
+    let ghaziEmployee = new employee(1000, "Ghazi Samer", department[0], level[2], '.\\images\\Ghazi.jpg');
+    let lanaEmployee = new employee(1001, "Lana Ali", department[3], level[2], ".\\images\\Lana.jpg");
+    let tamaraEmployee = new employee(1002, "Tamara Ayoub", department[1], level[2], ".\\images\\Tamara.jpg");
+    let saifEmployee = new employee(1003, "Safi Walid", department[0], level[1], ".\\images\\Safi.jpg");
+    let omarEmployee = new employee(1004, "Omar Zaid", department[2], level[2], ".\\images\\Omar.jpg");
+    let ranaEmployee = new employee(1005, "Rana Saleh", department[2], level[0], ".\\images\\Rana.jpg");
+    let hadiEmployee = new employee(1006, "Hadi Ahmad", department[3], level[1], ".\\images\\Hadi.jpg");
 
-const Ghazi = new employee(1000, 'Ghazi Samer', 'Administration', 'Senior', './images/Ghazi.jpg');
-const Lana = new employee(1001, 'Lana Ali', 'Finance', 'Senior', './images/Lana.jpg');
-const Tamara = new employee(1002, 'Tamara Ayoub', 'Marketing', 'Senior', './images/Tamara.jpg');
-const Safi = new employee(1003, 'Safi Walid', 'Development', 'Senior', './images/Safi.jpg');
-const Omar = new employee(1004, 'Omar Zaid', 'Administration', 'Mid-Senior', './images/Omar.jpg');
-const Rana = new employee(1005, 'Rana Saleh', 'Development', 'Junior', './images/Rana.jpg');
-const Hadi = new employee(1006, 'Hadi Ahmad', 'Finance', 'Mid-Senior', './images/Hadi.jpg');
+    ghaziEmployee.render();
+    lanaEmployee.render();
+    tamaraEmployee.render();
+    saifEmployee.render();
+    omarEmployee.render();
+    ranaEmployee.render();
+    hadiEmployee.render();
 
-
-////local storage //////
-
-//1. set date : save the data in local storage 
-
-function settingItem() {
-  let data = JSON.stringify(employee.allEmployees);// convert the data to JSON format 
-  localStorage.setItem('employees', data);
-
-
+    saveToLocalStorage();
 }
+var getRandomId = function () {
+    return Math.floor(Math.random() * (9000 - 1000)) + 1000;
+}
+
+let empMain = document.getElementById("employeeMain");
+let title = document.createElement("h2");
+title.textContent = "Add New Emplooye :"
+empMain.insertBefore(title, empMain.childNodes[0]);
+
+let form = document.getElementById("form");
+form.addEventListener("submit", handleSubmit);
+function handleSubmit(event) {
+    event.preventDefault();
+    let fullName = event.target.fullName.value;
+    let department = event.target.department.value;
+    let level = event.target.level.value;
  
-
-//2. get date : take the data from local storage 
-
-function gettingItem() {
-  let stringObj = localStorage.getItem('employees');
-  // console.log(stringObj);
-  let parsObj = JSON.parse(stringObj);
-  // console.log(parsObj);
-  if (parsObj !== null) {
-    employee.allEmployees = parsObj;
-  }
-
-  render();
-
+    let newEmployee = new employee(getRandomId(), fullName, department, level, empImage);
+    newEmployee.render();
+    saveToLocalStorage();
+    form.reset();
 }
-gettingItem();
+
+
+
